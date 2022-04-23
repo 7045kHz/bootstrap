@@ -9,9 +9,9 @@ import (
 	"github.com/mervick/aes-everywhere/go/aes256"
 )
 
-// BootstrapEnv Struct for storing sensitive information in a JSON file
+// BootStrapEnv Struct for storing sensitive information in a JSON file
 // instead of hardcoded
-type BootstrapEnv struct {
+type BootStrapEnv struct {
 	SqlDomain           string `json:"SqlDomain"`
 	SqlUser             string `json:"SqlUser"`
 	SqlPassword         string `json:"SqlPassword"`
@@ -27,14 +27,14 @@ type HashEnv struct {
 }
 
 // DecryptPassword Method decrypts the Sql Password and BindPassword stored in Bootstrap_File
-func (s *BootstrapEnv) DecryptPassword(h *HashEnv) {
+func (s *BootStrapEnv) DecryptPassword(h *HashEnv) {
 	s.SqlPassword = aes256.Decrypt(s.SqlPassword, h.StartHash)
 
 }
 
 // LoadFile Method loads the JSON Bootstrap_File passed as filename, then populates the struct
-// BootstrapEnv via an Unmarshal
-func (s *BootstrapEnv) LoadFile(filename string) error {
+// BootStrapEnv via an Unmarshal
+func (s *BootStrapEnv) LoadFile(filename string) error {
 	_, err := os.Stat(filename)
 	if errors.Is(err, os.ErrNotExist) {
 		return err
