@@ -26,12 +26,6 @@ type HashEnv struct {
 	StartHash string `json:"StartHash"`
 }
 
-type RetConnString struct {
-	ApiKey string `json:"ApiKey"`
-	DN     string `json:"DN"`
-	Hash   string `json:"Hash"`
-}
-
 // DecryptPassword Method decrypts the Sql Password and BindPassword stored in Startup_File
 func (s *StartupEnv) DecryptPassword(h *HashEnv) {
 	s.SqlPassword = aes256.Decrypt(s.SqlPassword, h.StartHash)

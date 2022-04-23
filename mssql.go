@@ -7,6 +7,12 @@ import (
 	_ "github.com/denisenkom/go-mssqldb"
 )
 
+type RetConnString struct {
+	ApiKey string `json:"ApiKey"`
+	DN     string `json:"DN"`
+	Hash   string `json:"Hash"`
+}
+
 func GetSpResults(db *sql.DB, whereClause string, v *StartupEnv) (*RetConnString, error) {
 	var r RetConnString
 	fmt.Printf("Incoming where: %v\n", whereClause)
