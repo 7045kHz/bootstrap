@@ -13,7 +13,7 @@ type RetConnString struct {
 	Hash   string `json:"Hash"`
 }
 
-func GetSpResults(db *sql.DB, whereClause string, v *StartupEnv) (*RetConnString, error) {
+func GetSpResults(db *sql.DB, whereClause string, v *BootstrapEnv) (*RetConnString, error) {
 	var r RetConnString
 	fmt.Printf("Incoming where: %v\n", whereClause)
 

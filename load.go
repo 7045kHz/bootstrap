@@ -9,9 +9,9 @@ import (
 	"github.com/mervick/aes-everywhere/go/aes256"
 )
 
-// StartupEnv Struct for storing sensitive information in a JSON file
+// BootstrapEnv Struct for storing sensitive information in a JSON file
 // instead of hardcoded
-type StartupEnv struct {
+type BootstrapEnv struct {
 	SqlDomain           string `json:"SqlDomain"`
 	SqlUser             string `json:"SqlUser"`
 	SqlPassword         string `json:"SqlPassword"`
@@ -26,15 +26,15 @@ type HashEnv struct {
 	StartHash string `json:"StartHash"`
 }
 
-// DecryptPassword Method decrypts the Sql Password and BindPassword stored in Startup_File
-func (s *StartupEnv) DecryptPassword(h *HashEnv) {
+// DecryptPassword Method decrypts the Sql Password and BindPassword stored in Bootstrap_File
+func (s *BootstrapEnv) DecryptPassword(h *HashEnv) {
 	s.SqlPassword = aes256.Decrypt(s.SqlPassword, h.StartHash)
 
 }
 
-// LoadFile Method loads the JSON Startup_File passed as filename, then populates the struct
-// StartupEnv via an Unmarshal
-func (s *StartupEnv) LoadFile(filename string) error {
+// LoadFile Method loads the JSON Bootstrap_File passed as filename, then populates the struct
+// BootstrapEnv via an Unmarshal
+func (s *BootstrapEnv) LoadFile(filename string) error {
 	_, err := os.Stat(filename)
 	if errors.Is(err, os.ErrNotExist) {
 		return err
@@ -52,7 +52,7 @@ func (s *StartupEnv) LoadFile(filename string) error {
 	return nil
 }
 
-// LoadFile Method loads the JSON Startup_Hash passed as filename, then populates the struct
+// LoadFile Method loads the JSON Bootstrap_Hash passed as filename, then populates the struct
 // HashEnv via an Unmarshal
 func (s *HashEnv) LoadFile(filename string) error {
 	_, err := os.Stat(filename)
