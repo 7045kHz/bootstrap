@@ -19,10 +19,7 @@ type Account struct {
 	Special  string `json:"Special"`
 }
 type Service struct {
-	Entity Account
-}
-type Connection struct {
-	Service []Service
+	Account []Account
 }
 
 // BootStrapEnv Struct for storing sensitive information in a JSON file
