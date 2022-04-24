@@ -9,6 +9,22 @@ import (
 	"github.com/mervick/aes-everywhere/go/aes256"
 )
 
+type Account struct {
+	User     string `json:"User"`
+	Summary  string `json:"Summary"`
+	Domain   string `json:"Domain"`
+	Password string `json:"Password"`
+	Server   string `json:"Server"`
+	Port     int    `json:"Port"`
+	Special  string `json:"Special"`
+}
+type Service struct {
+	Entity Account
+}
+type Connection struct {
+	Service []Service
+}
+
 // BootStrapEnv Struct for storing sensitive information in a JSON file
 // instead of hardcoded
 type BootStrapEnv struct {
