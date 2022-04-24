@@ -1,4 +1,4 @@
-module github.com/7045kHz/bootstrap v0.0.2
+module github.com/7045kHz/bootstrap
 
 go 1.16
 
