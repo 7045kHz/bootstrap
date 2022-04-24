@@ -9,6 +9,7 @@ import (
 	"github.com/mervick/aes-everywhere/go/aes256"
 )
 
+// Account test
 type Account struct {
 	User     string `json:"User"`
 	Summary  string `json:"Summary"`
