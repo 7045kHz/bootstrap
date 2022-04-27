@@ -1,0 +1,30 @@
+{
+    "Accounts": [
+        {
+            "Name": "ExampleSQL",
+            "Specs": {
+                "User": "U1",
+                "Summary": "Account for Database connection",
+                "Domain": "MYDOMAIN",
+                "Password": "U2FsdGVkX1/myMwiImF/oZbq9iPf5fMj9F6UeA6pjAg=",
+                "Server": "MSSQLDB.EXAMPLE.COM",
+                "Port": 1433,
+                "Special": "MYDB"
+                
+            }
+        },
+        {
+            "Name": "AD-BIND",
+            "Specs": {
+                "User": "MYDOMAIN\\U2",
+                "Summary": "User for Bind Connections",
+                "Domain": "MYDOMAIN",
+                "Password": "U2FsdGVkX1/myMwiImF/oZbq9iPf5fMj9F6UeA6pjAg=",
+                "Server": "AD.EXAMPLE.COM",
+                "Port": 1433,
+                "Special": "DC=MYDOMAIN,DC=EXAMPLE,DC=COM"
+            }
+        }
+    ]
+}
+ 
