@@ -1,7 +1,7 @@
 # bootstrap
 
-Version: v0.0.7
-Work In Progress - Do not use
+Version: v0.0.8
+Work In Progress - Expect changes
 
 ## What problem is this module trying to solve?
 
@@ -44,30 +44,37 @@ const (
 func main() {
 	s1 := &bs.Service{}
 
+    // load Bootstrap_File
 	err := s1.LoadFile(Bootstrap_File)
 	if err != nil {
 		fmt.Println("Error openint test.json")
 	}
 
 
-	// Load HashEnv before BootStrapEnv
+	// Load Bootstrap_Hash_File
 	h := bs.HashEnv{}
 	h.LoadFile(Bootstrap_Hash_File)
 
-
+    // get the account you want - in this case ExampleSQL - Accounts.Name = "ExampleSQL"
 	sqlAccount := s1.GetAccount("ExampleSQL")
  
+    // Print for debugging
 	fmt.Printf("sqlAccount = %v\n", sqlAccount)
-	// Define and load the bootstrap file
-
+ 
+    // Create a connection string from the sqlAccount  which is the Accounts struct for "ExampleSQL"
 	connString := fmt.Sprintf("server=%s;database=%s;user id=%s\\%s;password=%s;port=%d", sqlAccount.Specs.Server, sqlAccount.Specs.Special, sqlAccount.Specs.Domain, sqlAccount.Specs.User, sqlAccount.Specs.Password, sqlAccount.Specs.Port)
 
+    // Printing for debugging
 	fmt.Printf("Connect String: %v\n", connString)
+
+    // Define a connection using the string
 	db, err := sql.Open("mssql", connString)
 	if err != nil {
 		fmt.Printf("DB Open Error: %v\n", err)
 	}
 	defer db.Close()
+
+    // Ping to establish the connection
 	err = db.Ping()
 	if err != nil {
 		fmt.Printf("DB Ping Error: %v\n", err)
