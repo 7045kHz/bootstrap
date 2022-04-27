@@ -6,7 +6,7 @@
                 "User": "U1",
                 "Summary": "Account for Database connection",
                 "Domain": "MYDOMAIN",
-                "Password": "U2FsdGVkX1/myMwiImF/oZbq9iPf5fMj9F6UeA6pjAg=",
+                "Password": "U2FsdGVkX18qsa3BDnv7AOiIVtcxfTRb/Z2teuZt5JU=",
                 "Server": "MSSQLDB.EXAMPLE.COM",
                 "Port": 1433,
                 "Special": "MYDB"
@@ -19,7 +19,7 @@
                 "User": "MYDOMAIN\\U2",
                 "Summary": "User for Bind Connections",
                 "Domain": "MYDOMAIN",
-                "Password": "U2FsdGVkX1/myMwiImF/oZbq9iPf5fMj9F6UeA6pjAg=",
+                "Password": "U2FsdGVkX18qsa3BDnv7AOiIVtcxfTRb/Z2teuZt5JU=",
                 "Server": "AD.EXAMPLE.COM",
                 "Port": 1433,
                 "Special": "DC=MYDOMAIN,DC=EXAMPLE,DC=COM"

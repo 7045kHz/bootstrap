@@ -1,3 +1,11 @@
+// Bootstrap package is intented for server side deployment only, where the bootstrap_hash.json can be
+// secured with OS level permissions.
+//
+// It is an attempt to avoid having to include hardcoded passwords in code.
+// Instead, there is a default password stored in bootstrap_hash.json, which is used to encrypt
+// user account passwords. Those encrypted passwords are then stored in bootstrap.json.
+// So in your code, all you have to do is temporaraly decrypt the user password in a variable
+// and include that variable in whatever code you need.
 package bootstrap
 
 import (
@@ -23,7 +31,7 @@ type Accounts struct {
 }
 
 // Specs struct contains key values needed for that account.
-// Use Special for any additional configuration settings needed for this account.
+// Use Special for any additional configuration settings needed.
 type Specs struct {
 	Domain   string `json:"Domain"`
 	Password string `json:"Password"`
