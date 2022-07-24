@@ -1,0 +1,4 @@
+site_name: My Bootstrap Docs
+site_url: https://developer.rsyslab.com/
+theme:
+  name: readthedocs

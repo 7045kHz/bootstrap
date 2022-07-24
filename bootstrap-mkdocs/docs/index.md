@@ -34,35 +34,27 @@ import (
 )
 
 // Key bootstrap files, and default JSON header
+const (
+	Bootstrap_File      = "bootstrap.json"
+	Bootstrap_Hash_File = "bootstrap_hash.json"
+)
 
-type Bootstrap struct {
-	ConfigFile string
-	HashFile string
-}
  
 
 func main() {
 	s1 := &bs.Service{}
-	var startfile Bootstrap
- 
-    startfile.ConfigFile = "bootstrap.json"
-	startfile.HashFile = "bootstrap_hash.json"
- 
 
     // load Bootstrap_File
-	err := s1.LoadFile(startfile.ConfigFile)
+	err := s1.LoadFile(Bootstrap_File)
 	if err != nil {
-		fmt.Printf("Error openint %v\n",startfile.ConfigFile)
+		fmt.Println("Error openint test.json")
 	}
 
 
 	// Load Bootstrap_Hash_File
 	h := bs.HashEnv{}
-	h.LoadFile(startfile.HashFile)
+	h.LoadFile(Bootstrap_Hash_File)
 
-	// Decrypt the bootstrap.json passwords with the bootstrap.json key
-	s1.DecryptPasswords(&h)
-	
     // get the account you want - in this case ExampleSQL - Accounts.Name = "ExampleSQL"
 	sqlAccount := s1.GetAccount("ExampleSQL")
  
